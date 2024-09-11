@@ -1,10 +1,10 @@
 import React from 'react'
 import Avatar from './Avatar'
 
-const Navigation = ({user, changeAvatar}) => {
+const Navigation = () => {
   return (
     <div className='nav'>
-        <Avatar user={user} size='small' changeAvatar={changeAvatar}/>
+        <Avatar size='small' />
     </div>
   )
 }

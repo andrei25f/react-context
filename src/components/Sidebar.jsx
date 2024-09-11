@@ -1,10 +1,10 @@
 import React from 'react'
 import Stats from './Stats'
 
-const Sidebar = ({user, stats, changeAvatar}) => {
+const Sidebar = () => {
   return (
     <div className='sidebar'>
-        <Stats user={user} stats={stats} changeAvatar={changeAvatar}/>
+        <Stats />
     </div>
   )
 }
