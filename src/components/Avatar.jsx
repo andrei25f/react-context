@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { TwitterContext } from '../utils/context';
 
 const Avatar = ({ size }) => {
-    const {user, changeAvatar} = useContext(TwitterContext);
+    const {user, changeAvatar, changeName} = useContext(TwitterContext);
     return (
         <img
             onClick={() => {
@@ -12,7 +12,7 @@ const Avatar = ({ size }) => {
             onContextMenu={e => {
                 e.preventDefault();
                 const name = prompt('Enter new name');
-                user.changeName(name);
+                changeName(name);
             }}
             className={`user-avatar ${size ?? ''}`}
             src={user.avatar}
