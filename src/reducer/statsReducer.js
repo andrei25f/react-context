@@ -7,7 +7,12 @@ type State = {
 
 import { CHANGE_STATS } from "../actions/statsAction";
 
-export const statsReducer = (state, action) => {
+const defaultState = {
+    followers: 0,
+    following: 0
+}
+
+export const statsReducer = (state = defaultState, action) => {
     switch (action.type) {
         case CHANGE_STATS:
             let res = state[action.payload.statsType] + action.payload.sum;
