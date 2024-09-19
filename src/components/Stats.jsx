@@ -1,6 +1,7 @@
 import React from 'react'
 import Avatar from './Avatar'
 import { useDispatch, useSelector } from 'react-redux';
+import { changeStats } from '../actions/statsAction';
 
 const Stats = () => {
     const { followers, following } = useSelector(state => state.stats);
