@@ -1,31 +1,34 @@
-import { useContext } from 'react'
 import Avatar from './Avatar'
-import { TwitterContext } from '../utils/context';
+import { useAppDispatch, useAppSelector } from '../app/hooks';
+import { changeStats } from '../features/stats/statsSlice';
 
 const Stats = () => {
-    const { user, stats, changeStats } = useContext(TwitterContext);
+    const {followers, following} = useAppSelector(state => state.stats);
+    const name = useAppSelector(state => state.user.name);
+    const dispatch = useAppDispatch();
+
     return (
         <div className='user-stats'>
             <div>
                 <Avatar />
-                {user.name}
+                {name}
             </div>
             <div className='stats'>
-                <div onClick={() => changeStats('followers', 1)}
+                <div onClick={() => dispatch(changeStats('followers', 1))}
                     onContextMenu={e => {
                         e.preventDefault();
-                        changeStats('followers', -1);
+                        dispatch(changeStats('followers', -1));
                     }}
                 >
-                    Followers: {stats.followers}
+                    Followers: {followers}
                 </div>
-                <div onClick={() => changeStats('following', 1)}
+                <div onClick={() => dispatch(changeStats('following', 1))}
                     onContextMenu={e => {
                         e.preventDefault();
-                        changeStats('following', -1);
+                        dispatch(changeStats('following', -1));
                     }}
                 >
-                    Following: {stats.following}
+                    Following: {following}
                 </div>
             </div>
         </div>
